@@ -233,7 +233,7 @@ public class GameView extends GridLayout {
                             mCardsMap[x][y1].setNum(0);
                             y++;
                             flag = true;
-                        }else if (mCardsMap[x][y].equals(mCardsMap[x][y1])&&mCardsMap[x][y].getNum()<12) {
+                        }else if (mCardsMap[x][y].equals(mCardsMap[x][y1])&&mCardsMap[x][y].getNum()<12){
                             MainActivity.getMainActivity().getAnimLayer().createMoveAnim(mCardsMap[x][y1],
                                     mCardsMap[x][y], x, x, y1, y);
                             mCardsMap[x][y].setNum(mCardsMap[x][y].getNum()+1);
@@ -303,6 +303,7 @@ public class GameView extends GridLayout {
         }
         addRandNum();
         addRandNum();
+
     }
 
     private void checkComplete(){
@@ -326,6 +327,8 @@ public class GameView extends GridLayout {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     startGame();
+                    ScoreUtil.setCurrentScore(0);
+                    updateScoreView();
                 }
             }).create().show();
         }
